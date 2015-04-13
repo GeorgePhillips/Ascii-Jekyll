@@ -420,3 +420,21 @@ there.
 header {
     margin-top: 60px;
 }
+
+.preview {
+    text-align: right;
+}
+
+table {
+    font-size: 1.2em;
+}
+
+.entity {
+    text-align: center;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: right;
+}

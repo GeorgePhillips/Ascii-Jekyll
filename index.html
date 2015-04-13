@@ -2,4 +2,19 @@
 layout: default
 ---
 
-{{ site.data.ascii }}
+<table class="u-full-width">
+    <tr>
+        <th class="preview" width="200">Character</th>
+        <th class="entity" width="50">Named</th>
+        <th class="entity" width="50">Decimal</th>
+        <th class="description">Description</th>
+    </tr>
+    {% for char in site.data.ascii %}
+        <tr>
+            <td class="preview">&#{{ char.decimal-entity }};</td>
+            <td class="entity">&amp;{{ char.html-entity }};</td>
+            <td class="entity">&amp;#{{ char.decimal-entity }};</td>
+            <td class="description">{{ char.description }}</td>
+        </tr>
+    {% endfor %}
+</table>
