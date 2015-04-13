@@ -2,35 +2,23 @@
 layout: default
 ---
 
-<table class="u-full-width">
-    <tr>
-        <th class="preview" width="200">Character</th>
-        <th class="entity" width="50">Named</th>
-        <th class="entity" width="50">Decimal</th>
-        <th class="description">Description</th>
-    </tr>
-    {% for char in site.data.general %}
+{% for section in site.data.sections %}
+    <h2>{{ section.title }}</h2>
+
+    <table class="u-full-width">
         <tr>
-            <td class="preview">&#{{ char.decimal-entity }};</td>
-            <td class="entity">&amp;{{ char.html-entity }};</td>
-            <td class="entity">&amp;#{{ char.decimal-entity }};</td>
-            <td class="description">{{ char.description }}</td>
+            <th class="preview" width="200">Character</th>
+            <th width="50">Named</th>
+            <th width="50">Decimal</th>
+            <th>Description</th>
         </tr>
-    {% endfor %}
-    {% for char in site.data.mathmatical %}
-        <tr>
-            <td class="preview">&#{{ char.decimal-entity }};</td>
-            <td class="entity">&amp;{{ char.html-entity }};</td>
-            <td class="entity">&amp;#{{ char.decimal-entity }};</td>
-            <td class="description">{{ char.description }}</td>
-        </tr>
-    {% endfor %}
-    {% for char in site.data.special %}
-        <tr>
-            <td class="preview">&#{{ char.decimal-entity }};</td>
-            <td class="entity">&amp;{{ char.html-entity }};</td>
-            <td class="entity">&amp;#{{ char.decimal-entity }};</td>
-            <td class="description">{{ char.description }}</td>
-        </tr>
-    {% endfor %}
-</table>
+        {% for char in site.data[section.key] %}
+            <tr>
+                <td class="preview">&#{{ char.decimal-entity }};</td>
+                <td class="entity">&amp;{{ char.html-entity }};</td>
+                <td class="entity">&amp;#{{ char.decimal-entity }};</td>
+                <td>{{ char.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
